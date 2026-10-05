@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
   "loginRedirects": {
-    "SabyUser": "/studio",
-    "SuperUser": "/studio",
-    "Owner": "/studio",
-    "Admin": "/studio",
-    "OrdinaryUser": "/studio",
-    "default": "/studio"
+    "SabyUser": "/",
+    "SuperUser": "/",
+    "Owner": "/",
+    "Admin": "/",
+    "OrdinaryUser": "/",
+    "default": "/"
   },
   "unauthorizedRedirects": {
     "authenticated": "/access-denied",
