@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "loginRedirects": {
+    "SabyUser": "/studio",
+    "SuperUser": "/studio",
+    "Owner": "/studio",
+    "Admin": "/studio",
+    "OrdinaryUser": "/studio",
+    "default": "/studio"
+  },
+  "unauthorizedRedirects": {
+    "authenticated": "/access-denied",
+    "unauthenticated": "/auth/sign-in"
+  },
+  "logoutRedirect": "/auth/sign-in",
+  "sessionExpiredRedirect": "/auth/sign-in?session=expired",
+  "channelRestrictions": {
+    "web": {
+      "allowedRoles": ["SabyUser", "SuperUser", "Owner", "Admin"],
+      "deniedRedirect": "/access-denied"
+    }
+  }
+}

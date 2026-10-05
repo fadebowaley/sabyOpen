@@ -1,0 +1,309 @@
+{
+  "version": "2.0.0",
+  "_comment": {
+    "migration": "Updated to use Resource:Action format (e.g., user:read instead of view:user)",
+    "oldFormat": "action:resource (e.g., view:user)",
+    "newFormat": "resource:action (e.g., user:read)",
+    "actionMapping": {
+      "view": "read",
+      "create": "create",
+      "update": "update",
+      "delete": "delete",
+      "manage": "manage"
+    }
+  },
+  "permissionGroups": {
+    "users": {
+      "view": "user:read",
+      "create": "user:create",
+      "update": "user:update",
+      "delete": "user:delete",
+      "manage": "user:manage"
+    },
+    "roles": {
+      "view": "role:read",
+      "create": "role:create",
+      "update": "role:update",
+      "delete": "role:delete",
+      "manage": "role:manage"
+    },
+    "permissions": {
+      "view": "permission:read",
+      "create": "permission:create",
+      "update": "permission:update",
+      "delete": "permission:delete",
+      "manage": "permission:manage"
+    },
+    "network": {
+      "view": "network:read",
+      "create": "network:create",
+      "update": "network:update",
+      "delete": "network:delete",
+      "manage": "network:manage"
+    },
+    "node": {
+      "view": "node:read",
+      "create": "node:create",
+      "update": "node:update",
+      "delete": "node:delete",
+      "manage": "node:manage"
+    },
+    "level": {
+      "view": "level:read",
+      "create": "level:create",
+      "update": "level:update",
+      "delete": "level:delete",
+      "manage": "level:manage"
+    },
+    "structures": {
+      "view": "structure:read",
+      "create": "structure:create",
+      "update": "structure:update",
+      "delete": "structure:delete",
+      "manage": "structure:manage"
+    },
+    "submission": {
+      "view": "submission:read",
+      "create": "submission:create",
+      "update": "submission:update",
+      "delete": "submission:delete",
+      "manage": "submission:manage"
+    },
+    "apikey": {
+      "view": "apikey:read",
+      "create": "apikey:create",
+      "update": "apikey:update",
+      "delete": "apikey:delete",
+      "manage": "apikey:manage"
+    },
+    "apikeyapproval": {
+      "view": "apikeyapproval:read",
+      "create": "apikeyapproval:create",
+      "update": "apikeyapproval:update",
+      "delete": "apikeyapproval:delete",
+      "manage": "apikeyapproval:manage"
+    },
+    "baselineintelligence": {
+      "view": "baselineintelligence:read",
+      "create": "baselineintelligence:create",
+      "update": "baselineintelligence:update",
+      "delete": "baselineintelligence:delete",
+      "manage": "baselineintelligence:manage"
+    },
+    "eventcalendar": {
+      "view": "eventcalendar:read",
+      "create": "eventcalendar:create",
+      "update": "eventcalendar:update",
+      "delete": "eventcalendar:delete",
+      "manage": "eventcalendar:manage"
+    },
+    "inmail": {
+      "view": "inmail:read",
+      "create": "inmail:create",
+      "update": "inmail:update",
+      "delete": "inmail:delete",
+      "manage": "inmail:manage"
+    },
+    "projectform": {
+      "view": "projectform:read",
+      "create": "projectform:create",
+      "update": "projectform:update",
+      "delete": "projectform:delete",
+      "manage": "projectform:manage"
+    },
+    "storage": {
+      "view": "storage:read",
+      "create": "storage:create",
+      "update": "storage:update",
+      "delete": "storage:delete",
+      "manage": "storage:manage"
+    },
+    "storagefolder": {
+      "view": "storagefolder:read",
+      "create": "storagefolder:create",
+      "update": "storagefolder:update",
+      "delete": "storagefolder:delete",
+      "manage": "storagefolder:manage"
+    },
+    "structure": {
+      "view": "structure:read",
+      "create": "structure:create",
+      "update": "structure:update",
+      "delete": "structure:delete",
+      "manage": "structure:manage"
+    },
+    "unifiedsubmission": {
+      "view": "unifiedsubmission:read",
+      "create": "unifiedsubmission:create",
+      "update": "unifiedsubmission:update",
+      "delete": "unifiedsubmission:delete",
+      "manage": "unifiedsubmission:manage"
+    },
+    "admin": {
+      "view": "admin:read",
+      "create": "admin:create",
+      "update": "admin:update",
+      "delete": "admin:delete",
+      "manage": "admin:manage"
+    },
+    "analytics": {
+      "view": "analytics:read",
+      "create": "analytics:create",
+      "update": "analytics:update",
+      "delete": "analytics:delete",
+      "manage": "analytics:manage"
+    },
+    "app": {
+      "view": "app:read",
+      "create": "app:create",
+      "update": "app:update",
+      "delete": "app:delete",
+      "manage": "app:manage"
+    },
+    "baselinejobs": {
+      "view": "baselinejobs:read",
+      "create": "baselinejobs:create",
+      "update": "baselinejobs:update",
+      "delete": "baselinejobs:delete",
+      "manage": "baselinejobs:manage"
+    },
+    "captures": {
+      "view": "captures:read",
+      "create": "captures:create",
+      "update": "captures:update",
+      "delete": "captures:delete",
+      "manage": "captures:manage"
+    },
+    "collection": {
+      "view": "collection:read",
+      "create": "collection:create",
+      "update": "collection:update",
+      "delete": "collection:delete",
+      "manage": "collection:manage"
+    },
+    "compliance": {
+      "view": "compliance:read",
+      "create": "compliance:create",
+      "update": "compliance:update",
+      "delete": "compliance:delete",
+      "manage": "compliance:manage"
+    },
+    "department": {
+      "view": "department:read",
+      "create": "department:create",
+      "update": "department:update",
+      "delete": "department:delete",
+      "manage": "department:manage"
+    },
+    "event": {
+      "view": "event:read",
+      "create": "event:create",
+      "update": "event:update",
+      "delete": "event:delete",
+      "manage": "event:manage"
+    },
+    "export": {
+      "view": "export:read",
+      "create": "export:create",
+      "update": "export:update",
+      "delete": "export:delete",
+      "manage": "export:manage"
+    },
+    "payment": {
+      "view": "payment:read",
+      "create": "payment:create",
+      "update": "payment:update",
+      "delete": "payment:delete",
+      "manage": "payment:manage"
+    },
+    "program": {
+      "view": "program:read",
+      "create": "program:create",
+      "update": "program:update",
+      "delete": "program:delete",
+      "manage": "program:manage"
+    },
+    "report": {
+      "view": "report:read",
+      "create": "report:create",
+      "update": "report:update",
+      "delete": "report:delete",
+      "manage": "report:manage"
+    },
+    "setting": {
+      "view": "setting:read",
+      "create": "setting:create",
+      "update": "setting:update",
+      "delete": "setting:delete",
+      "manage": "setting:manage"
+    },
+    "statement": {
+      "view": "statement:read",
+      "create": "statement:create",
+      "update": "statement:update",
+      "delete": "statement:delete",
+      "manage": "statement:manage"
+    },
+    "storage-file": {
+      "view": "storage-file:read",
+      "create": "storage-file:create",
+      "update": "storage-file:update",
+      "delete": "storage-file:delete",
+      "manage": "storage-file:manage"
+    },
+    "user-form-settings": {
+      "view": "user-form-settings:read",
+      "create": "user-form-settings:create",
+      "update": "user-form-settings:update",
+      "delete": "user-form-settings:delete",
+      "manage": "user-form-settings:manage"
+    },
+    "validation": {
+      "view": "validation:read",
+      "create": "validation:create",
+      "update": "validation:update",
+      "delete": "validation:delete",
+      "manage": "validation:manage"
+    }
+  },
+  "specialPermissions": {
+    "wildcard": "*",
+    "superAdmin": "admin:all"
+  },
+  "ownerResourceBundle": [
+    "admin",
+    "analytics",
+    "apikey",
+    "apikeyapproval",
+    "app",
+    "baselineintelligence",
+    "baselinejobs",
+    "captures",
+    "collection",
+    "compliance",
+    "department",
+    "event",
+    "eventcalendar",
+    "export",
+    "inmail",
+    "level",
+    "node",
+    "payment",
+    "permission",
+    "program",
+    "projectform",
+    "report",
+    "role",
+    "setting",
+    "statement",
+    "storage",
+    "storage-file",
+    "storagefolder",
+    "structure",
+    "submission",
+    "unifiedsubmission",
+    "user",
+    "user-form-settings",
+    "validation"
+  ]
+}

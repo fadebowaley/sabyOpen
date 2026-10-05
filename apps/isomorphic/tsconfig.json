@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "downlevelIteration": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "@public/*": ["public/*"],
+      "@shared/*": ["src/app/shared*"],
+      "@core/*": ["../../packages/isomorphic-core/src/*"],
+      "@haloform/*": ["../../packages/isomorphic-core/src/components/haloform/*"],
+      "@chats/*": ["../../packages/isomorphic-core/src/components/chats/*"],
+      "@inMails/*": ["src/app/(berrylium)/inmails/*"],
+      "@inMailsLib/*": ["src/app/(berrylium)/inmails/emails/lib/*"],
+      "@config/*": ["../../packages/config-tailwind/*"],
+      "@hooks/*": ["src/app/lib/hooks/*"],
+      "@lib/*": ["src/app/lib/*"],
+      "@types/*": ["../../packages/isomorphic-core/src/types/*"],
+      "@utils/*": ["../../packages/isomorphic-core/src/utils/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "extends": "typescript-config/nextjs.json",
+  "include": [
+    "next-env.d.ts",
+    "additional.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules", "**/*.test.ts", "**/*.spec.ts"]
+}

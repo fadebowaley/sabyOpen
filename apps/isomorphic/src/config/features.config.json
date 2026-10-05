@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "description": "Feature flags configuration for SABY application",
+  "features": {
+    "maintenance": {
+      "enabled": false,
+      "route": "/maintenance",
+      "description": "Maintenance mode page - shows when site is under maintenance",
+      "settings": {
+        "showCountdown": false,
+        "expectedReturnDate": "",
+        "theme": "dark",
+        "message": "We're making SABY even better. We'll be back soon!"
+      }
+    },
+    "comingSoon": {
+      "enabled": false,
+      "route": "/coming-soon",
+      "description": "Coming soon page - shows before official launch",
+      "settings": {
+        "showCountdown": true,
+        "launchDate": "2025-12-31T00:00:00Z",
+        "theme": "dark",
+        "message": "Something intelligent is coming. Stay tuned.",
+        "collectEmails": true
+      }
+    }
+  }
+}

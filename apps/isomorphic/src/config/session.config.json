@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "tokenRefresh": {
+    "enabled": true,
+    "refreshBeforeExpiry": 300,
+    "maxRetries": 3,
+    "retryDelay": 1000
+  },
+  "sessionTimeout": {
+    "enabled": true,
+    "warningTime": 120,
+    "idleTimeout": 1800,
+    "absoluteTimeout": 28800
+  },
+  "security": {
+    "requireEmailVerification": false,
+    "requirePhoneVerification": false,
+    "enforceTokenExpiry": true,
+    "logoutOnTokenExpiry": true,
+    "clearSessionOnLogout": true
+  },
+  "activityTracking": {
+    "enabled": true,
+    "trackEvents": ["click", "keypress", "scroll", "mousemove"],
+    "debounceDelay": 1000
+  }
+}
+

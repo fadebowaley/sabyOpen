@@ -1,0 +1,24 @@
+{
+  "name": "Saby - CRM for Data Insight and Artificial Intelligence",
+  "short_name": "Saby",
+  "description": "A powerful CRM app designed for data insight and artificial intelligence",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}
+

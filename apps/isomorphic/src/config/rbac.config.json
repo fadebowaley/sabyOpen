@@ -1,0 +1,739 @@
+{
+  "version": "2.0.0",
+  "_comment": {
+    "migration": "Updated to use Resource:Action format (e.g., user:read instead of view:user)",
+    "oldFormat": "action:resource (e.g., view:user)",
+    "newFormat": "resource:action (e.g., user:read)",
+    "essentialRoutes": [
+      "Essential routes are accessible to all authenticated users regardless of role/permissions",
+      "Essential routes: / (dashboard), /profile",
+      "These routes have empty requiredRoles and requiredPermissions arrays"
+    ],
+    "bulkResourcePermissions": [
+      "Bulk resource permissions allow checking all actions on a resource at once:",
+      "*:resource - All actions on a resource (read, create, update, delete, manage)",
+      "resource:manage - All CRUD actions (read, create, update, delete)",
+      "If user has all CRUD permissions for a resource, they effectively have manage permission"
+    ]
+  },
+  "routePermissions": {
+    "/": {
+      "requiredRoles": [],
+      "requiredPermissions": [],
+      "requiresAuth": false,
+      "description": "Public Saby landing page"
+    },
+    "/agenda/*": {
+      "requiredRoles": [],
+      "requiredPermissions": [],
+      "requiresAuth": false,
+      "description": "Public AI Event Agenda & Briefing"
+    },
+    "/a/*": {
+      "requiredRoles": [],
+      "requiredPermissions": [],
+      "requiresAuth": false,
+      "description": "Smart short-link for Public Event Agenda & Briefing"
+    },
+    "/a": {
+      "requiredRoles": [],
+      "requiredPermissions": [],
+      "requiresAuth": false,
+      "description": "Smart short-link for Public Event Agenda & Briefing"
+    },
+    "/executive": {
+      "requiredRoles": [
+        "SuperUser",
+        "SabyUser"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Executive dashboard"
+    },
+    "/intelligence": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Intelligence chat interface"
+    },
+    "/studio": {
+      "requiredRoles": [],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Studio V2 workspace hub"
+    },
+    "/studio/onboarding": {
+      "requiredRoles": [],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Studio V2 onboarding"
+    },
+    "/studio/modules": {
+      "requiredRoles": [],
+      "requiredPermissions": [
+        "create:project-form"
+      ],
+      "requiresAuth": true,
+      "description": "Studio V2 modules list"
+    },
+    "/studio/team": {
+      "requiredRoles": [],
+      "requiredPermissions": [
+        "user:read"
+      ],
+      "requiresAuth": true,
+      "description": "Studio V2 workspace team management"
+    },
+    "/studio/module-reports": {
+      "requiredRoles": [],
+      "requiredPermissions": [
+        "report:read"
+      ],
+      "requiresAuth": true,
+      "description": "Studio V2 module reports"
+    },
+    "/studio/module-tracking": {
+      "requiredRoles": [],
+      "requiredPermissions": [
+        "submission:read"
+      ],
+      "requiresAuth": true,
+      "description": "Studio V2 module tracking"
+    },
+    "/studio/users": {
+      "requiredRoles": [],
+      "requiredPermissions": [
+        "user:read"
+      ],
+      "requiresAuth": true,
+      "description": "Studio V2 user management"
+    },
+    "/studio/network": {
+      "requiredRoles": [],
+      "requiredPermissions": [
+        "node:read"
+      ],
+      "requiresAuth": true,
+      "description": "Studio V2 network management"
+    },
+    "/studio/vault": {
+      "requiredRoles": [],
+      "requiredPermissions": [
+        "storage:read"
+      ],
+      "requiresAuth": true,
+      "description": "Studio V2 vault"
+    },
+    "/studio/automations": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser"
+      ],
+      "requiredPermissions": [
+        "apikey:read"
+      ],
+      "requiresAuth": true,
+      "description": "Studio V2 automations"
+    },
+    "/studio/billings": {
+      "requiredRoles": [
+        "SabyUser"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Studio V2 billing and invoicing console"
+    },
+    "/studio/token": {
+      "requiredRoles": [
+        "SabyUser"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Studio V2 AI token management and allocation console"
+    },
+    "/studio/security": {
+      "requiredRoles": [
+        "SabyUser"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Studio V2 security support and MFA recovery console"
+    },
+    "/studio/workspace/new": {
+      "requiredRoles": [],
+      "requiredPermissions": [
+        "create:project-form"
+      ],
+      "requiresAuth": true,
+      "description": "Create a Studio V2 workspace form"
+    },
+    "/studio/workspace/*": {
+      "requiredRoles": [],
+      "requiredPermissions": [
+        "view:project-form"
+      ],
+      "requiresAuth": true,
+      "description": "Studio V2 workspace editor"
+    },
+    "/users/list": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "user:read"
+      ],
+      "requiresAuth": true,
+      "description": "User management"
+    },
+    "/users/roles": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "role:read"
+      ],
+      "requiresAuth": true,
+      "description": "Role management"
+    },
+    "/users/roles/*/edit": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "role:update"
+      ],
+      "requiresAuth": true,
+      "description": "Edit role details"
+    },
+    "/users/profile/*": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "user:read"
+      ],
+      "requiresAuth": true,
+      "description": "User profile details"
+    },
+    "/users/permissions": {
+      "requiredRoles": [
+        "SuperUser",
+        "SabyUser"
+      ],
+      "requiredPermissions": [
+        "permission:read"
+      ],
+      "requiresAuth": true,
+      "description": "Permission management - SuperUser only"
+    },
+    "/users/level": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser"
+      ],
+      "requiredPermissions": [
+        "level:read"
+      ],
+      "requiresAuth": true,
+      "description": "Level management"
+    },
+    "/users/structure": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser"
+      ],
+      "requiredPermissions": [
+        "structure:read"
+      ],
+      "requiresAuth": true,
+      "description": "Structure management"
+    },
+    "/network/manage": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser"
+      ],
+      "requiredPermissions": [
+        "network:read"
+      ],
+      "requiresAuth": true,
+      "description": "Network management"
+    },
+    "/network/create": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser"
+      ],
+      "requiredPermissions": [
+        "network:create"
+      ],
+      "requiresAuth": true,
+      "description": "Create network"
+    },
+    "/network/level": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser"
+      ],
+      "requiredPermissions": [
+        "level:read"
+      ],
+      "requiresAuth": true,
+      "description": "Network levels"
+    },
+    "/network/structure": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser"
+      ],
+      "requiredPermissions": [
+        "structure:read"
+      ],
+      "requiresAuth": true,
+      "description": "Network structures"
+    },
+    "/node/manage": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "node:read"
+      ],
+      "requiresAuth": true,
+      "description": "Node management"
+    },
+    "/node": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "node:read"
+      ],
+      "requiresAuth": true,
+      "description": "Node dashboard"
+    },
+    "/node/create": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "node:create"
+      ],
+      "requiresAuth": true,
+      "description": "Create node"
+    },
+    "/node/distribution": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "node:read"
+      ],
+      "requiresAuth": true,
+      "description": "Node level and structure distribution overview"
+    },
+    "/sabyform/templates": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Form templates library (SabyForm URL)"
+    },
+    "/forms": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Form projects list"
+    },
+    "/forms/*": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Form project details and preview"
+    },
+    "/inmails": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Internal mail system"
+    },
+    "/event-calendar": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "eventcalendar:read"
+      ],
+      "requiresAuth": true,
+      "description": "Event calendar"
+    },
+    "/profile": {
+      "requiredRoles": [],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "User profile - accessible to all authenticated users"
+    },
+    "/apis": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser"
+      ],
+      "requiredPermissions": [
+        "apikey:read"
+      ],
+      "requiresAuth": true,
+      "description": "API management"
+    },
+    "/apis/user-settings": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser"
+      ],
+      "requiredPermissions": [
+        "apikey:read"
+      ],
+      "requiresAuth": true,
+      "description": "API user access settings"
+    },
+    "/apis/go-live": {
+      "requiredRoles": [
+        "SabyUser"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Production API keys dashboard"
+    },
+    "/apis/approvals": {
+      "requiredRoles": [
+        "SabyUser"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "API key approval dashboard - SabyUser only"
+    },
+    "/audit-trail": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "System audit trail and event history"
+    },
+    "/file-manager": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "File manager"
+    },
+    "/submissions": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "submission:read"
+      ],
+      "requiresAuth": true,
+      "description": "Submissions management dashboard"
+    },
+    "/submissions/*": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "submission:read"
+      ],
+      "requiresAuth": true,
+      "description": "Submission detail pages"
+    },
+    "/perm-dashboard": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "submission:read"
+      ],
+      "requiresAuth": true,
+      "description": "PERM compliance dashboard - main overview"
+    },
+    "/perm-dashboard/*": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "submission:read"
+      ],
+      "requiresAuth": true,
+      "description": "PERM compliance dashboard - project details"
+    },
+    "/payments": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Payment settlement and reconciliation flow"
+    },
+    "/calendar-management": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "eventcalendar:read"
+      ],
+      "requiresAuth": true,
+      "description": "Calendar management dashboard for PERM event calendars"
+    },
+    "/log-dashboard": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Activity logs dashboard"
+    },
+    "/reports/baseline-intelligence": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "baselineintelligence:read"
+      ],
+      "requiresAuth": true,
+      "description": "Baseline Intelligence Dashboard"
+    },
+    "/reports/baseline-intelligence/network": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "baselineintelligence:read"
+      ],
+      "requiresAuth": true,
+      "description": "Network baseline intelligence"
+    },
+    "/reports/baseline-intelligence/users-demographics": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "baselineintelligence:read"
+      ],
+      "requiresAuth": true,
+      "description": "Users and demographics baseline"
+    },
+    "/reports/baseline-intelligence/networks-geographics": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "baselineintelligence:read"
+      ],
+      "requiresAuth": true,
+      "description": "Networks and geographics baseline"
+    },
+    "/reports/baseline-intelligence/property-distributions": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "baselineintelligence:read"
+      ],
+      "requiresAuth": true,
+      "description": "Property distributions baseline"
+    },
+    "/reports/baseline-intelligence/insights-recommendations": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "baselineintelligence:read"
+      ],
+      "requiresAuth": true,
+      "description": "Insights and recommendations baseline"
+    },
+    "/reports/baseline-intelligence/compliance": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "baselineintelligence:read"
+      ],
+      "requiresAuth": true,
+      "description": "Profile compliance baseline"
+    },
+    "/reports/baseline-intelligence/leaderboard": {
+      "requiredRoles": [
+        "SuperUser",
+        "Owner",
+        "SabyUser",
+        "Admin"
+      ],
+      "requiredPermissions": [
+        "baselineintelligence:read"
+      ],
+      "requiresAuth": true,
+      "description": "Update leaderboard baseline"
+    },
+    "/cms": {
+      "requiredRoles": [
+        "SabyUser"
+      ],
+      "requiredPermissions": [],
+      "requiresAuth": true,
+      "description": "Saby-only public content management"
+    }
+  },
+  "publicRoutes": [
+    "/",
+    "/chat",
+    "/auth/sign-in",
+    "/auth/sign-in-1",
+    "/auth/sign-up",
+    "/auth/sign-up-1",
+    "/auth/forgot-password",
+    "/auth/forgot-password-1",
+    "/auth/otp",
+    "/auth/otp-1",
+    "/auth/reset-password",
+    "/form/*",
+    "/s/*",
+    "/go/*",
+    "/agenda/*",
+    "/a/*",
+    "/a",
+    "/workspace-invite/*",
+    "/access-denied",
+    "/not-found",
+    "/maintenance",
+    "/coming-soon",
+    "/pricing",
+    "/checkout",
+    "/checkout/*",
+    "/documentation",
+    "/blog",
+    "/blog/*",
+    "/partners",
+    "/faqs",
+    "/terms-of-service",
+    "/privacy-policy",
+    "/help",
+    "/help-support",
+    "/product-updates",
+    "/saby/meet"
+  ],
+  "roleHierarchy": {
+    "SabyUser": 100,
+    "SuperUser": 90,
+    "Owner": 80,
+    "Admin": 40,
+    "OrdinaryUser": 10
+  }
+}
